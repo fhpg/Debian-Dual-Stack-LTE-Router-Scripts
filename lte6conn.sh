@@ -5,7 +5,7 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 
 CID6=$(qmicli -p -d $WDM --wds-noop --client-no-release-cid | grep CID | cut -d "'" -f 2)
 qmicli -p -d $WDM --wds-set-ip-family=6 --client-no-release-cid --client-cid=$CID6
-HANDLE6=$(qmicli -p -d $WDM --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network='3gpp-profile=$PROFILE,ip-type=6' --client-no-release-cid  --client-cid=$CID6 | grep -i 'Packet data handle' | cut -d "'" -f 2)
+HANDLE6=$(qmicli -p -d $WDM --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network='3gpp-profile=2,ip-type=6' --client-no-release-cid  --client-cid=$CID6 | grep -i 'Packet data handle' | cut -d "'" -f 2)
 if [ "$HANDLE6" != "" ] ; then
   qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID6
   IP6=$(qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID6 | grep 'IPv6 address' | cut -d ':' -f 2- | sed 's/ //g')
