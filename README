@@ -59,7 +59,12 @@ iface eth0 inet static
 address 192.168.1.7/24
 #####################################
 
+copy lte.config to /etc
+
+copy lte.service to /etc/systemd/system/ and then enable it with systemctl enable lte.service
+
 use the beside scripts for initialization of the modem, as well as for connection and disconnect
+copy them to /opt/lte/
 
 lteinit.sh - use this once after system startup
 lteconn.sh - to connect

@@ -1,0 +1,10 @@
+[Unit]
+Description=Permanent LTE Connection
+After=network.target
+
+[Service]
+ExecStart=/opt/lte/ltewatchdog.sh
+ExecStop=pkill ltewatchdog.sh ; /opt/lte/ltedisconn.sh
+
+[Install]
+WantedBy=default.target
