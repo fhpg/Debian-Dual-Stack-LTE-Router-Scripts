@@ -5,6 +5,8 @@ After=network.target
 [Service]
 ExecStart=/opt/lte/ltewatchdog.sh
 ExecStop=pkill ltewatchdog.sh ; /opt/lte/ltedisconn.sh
+StandardOutput=append:/var/log/lte.log
+StandardError=append:/var/log/lte.log
 
 [Install]
 WantedBy=default.target

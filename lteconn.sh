@@ -8,7 +8,7 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 . "$DIR/ltesignal.sh"
 
 . "$DIR/lte6conn.sh"
-
+sleep 5
 . "$DIR/lte4conn.sh"
 
 . "$DIR/ltefwup.sh"

@@ -6,8 +6,7 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 CID4=$(qmicli -p -d $WDM --wds-noop --client-no-release-cid | grep CID | cut -d "'" -f 2)
 qmicli -p -d $WDM --wds-set-ip-family=4 --client-no-release-cid --client-cid=$CID4
 HANDLE4=$(qmicli -p -d $WDM --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network='3gpp-profile=1,ip-type=4' --client-no-release-cid  --client-cid=$CID4 | grep -i 'Packet data handle' | cut -d "'" -f 2)
-IP4INFO=$(qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID4)
-echo $IP4INFO
+qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID4
 IP4=$(qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID4 | grep 'IPv4 address' | cut -d ':' -f 2- | sed 's/ //g')
 IP4MASK=$(qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID4 | grep 'IPv4 subnet mask' | cut -d ':' -f 2- | sed 's/ //g')
 IP4GW=$(qmicli -p -d $WDM --client-no-release-cid --wds-get-current-settings --client-cid=$CID4 | grep 'IPv4 gateway address' | cut -d ':' -f 2- | sed 's/ //g')
