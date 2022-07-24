@@ -7,5 +7,5 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 
 qmicli -d $WDM -p --wds-get-current-settings --client-cid=$CID4 --client-no-release-cid
 qmicli -d $WDM -p --wds-get-current-settings --client-cid=$CID6 --client-no-release-cid
-ping -4 -c 1 $PING4HOST
-ping -6 -c 1 $PING6HOST
+ping -4 -c 1 $PING4HOST1
+ping -6 -c 1 $PING6HOST1
